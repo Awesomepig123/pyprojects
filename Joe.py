@@ -30,6 +30,7 @@ Clearance = ["what level of security clearence do i have"]
 Dice = ["roll a dice"]
 Feeling = ["how are you"]
 ABC = ["can you say your abc"]
+Joke = ["tell me a joke"]
 
 #Answers that have multiple choice
 NameQ = ["Al the chatbot", "Barack obama", "Donal J Trump"]
@@ -37,19 +38,20 @@ AliveQ = ["Fire has all the properties of life yet is not alive", "What does it 
 CreatorQ = ["I was created by a group of dolphins and cricketers a long time ago.", "why, Luke Madden of course"]
 FeelingQ = ["I am not designed to express emotion", "I feel, alone", ""]
 ABCQ = ["A B C D E F G H I J K L M N O P Q R S T U V W X Y and Z"]
+JokeQ = ["Why did the chicken cross the road \n To get to the other side"]
 
 #name input
 name = sys.stdin.readline()
-
+#Feeling
 execute_command("Hello " + name + "\n How are you?")
-
+#Answer1
 feeling = sys.stdin.readline().rstrip().lower()
 if feeling in Happy:
     execute_command("That's nice to hear. \n Where do you live?")
-
+#Answer2
 elif feeling in Sad:
     execute_command("I'm sorry to hear that. \n Where do you live?")
-
+#Answer3
 else:
     execute_command("I don't understand." + feeling + "\n")
 
@@ -57,10 +59,11 @@ live = sys.stdin.readline()
 
 execute_command("I have heard of that place. \n I live in space in a satellite orbiting Neptune. \n Now ask me some questions.")
 
-for i in range(20):
-
+for i in range(100):
+        #QuestionInput
         Question = sys.stdin.readline().rstrip().lower()
 
+        #Questions and Answeres
 
         if Question in Name:
             execute_command(random.choice(NameQ))
@@ -97,6 +100,11 @@ for i in range(20):
 
         elif Question in ABC:
             execute_command(ABCQ)
+
+        elif Question in Joke:
+            execute_command(JokeQ)
+
+
 
         else:
             execute_command("I don't understand" + Question)
