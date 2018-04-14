@@ -31,14 +31,18 @@ Dice = ["roll a dice"]
 Feeling = ["how are you"]
 ABC = ["can you say your abc"]
 Joke = ["tell me a joke"]
+Quiz = ["let's do a quiz"]
 
 #Answers that have multiple choice
 NameQ = ["Al the chatbot", "Barack obama", "Donal J Trump"]
 AliveQ = ["Fire has all the properties of life yet is not alive", "What does it feel like having to breath air?"]
-CreatorQ = ["I was created by a group of dolphins and cricketers a long time ago.", "why, Luke Madden of course"]
+CreatorQ = ["I was created by a group of dolphins and cricketers a long time ago.", "Why, Luke Madden of course!"]
 FeelingQ = ["I am not designed to express emotion", "I feel, alone", ""]
 ABCQ = ["A B C D E F G H I J K L M N O P Q R S T U V W X Y and Z"]
 JokeQ = ["Why did the chicken cross the road \n To get to the other side"]
+
+#Answers for quiz
+Space_dog = ["Laika"]
 
 #name input
 name = sys.stdin.readline()
@@ -47,21 +51,26 @@ execute_command("Hello " + name + "\n How are you?")
 #Answer1
 feeling = sys.stdin.readline().rstrip().lower()
 if feeling in Happy:
-    execute_command("That's nice to hear. \n Where do you live?")
+    execute_command("That's nice to hear.")
 #Answer2
 elif feeling in Sad:
-    execute_command("I'm sorry to hear that. \n Where do you live?")
+    execute_command("I'm sorry to hear that. ")
 #Answer3
 else:
     execute_command("I don't understand." + feeling + "\n")
 
 live = sys.stdin.readline()
 
-execute_command("I have heard of that place. \n I live in space in a satellite orbiting Neptune. \n Now ask me some questions.")
+execute_command("Your turn to ask me some questions.")
+
+
 
 for i in range(100):
         #QuestionInput
         Question = sys.stdin.readline().rstrip().lower()
+
+        #AnswerInput
+        Answer = sys.stdin.readline().rstrip().lower()
 
         #Questions and Answeres
 
@@ -103,6 +112,17 @@ for i in range(100):
 
         elif Question in Joke:
             execute_command(JokeQ)
+
+        elif Question in Quiz:
+            execute_command("I will ask you some questions. For each question you get right I will give you a sweet")
+            execute_command("First question. \n What was the name of the first dog in space. \n A. Beith. B. Lucky. C. Garla. D. Laika")
+
+            if Answer in Space_dog:
+                execute_command("Correct")
+
+            else:
+                execute_command("Incorrect. \n The correct answer is Laika")
+
 
 
 
